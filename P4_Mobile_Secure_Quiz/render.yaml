@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: itba-p4-mobile-secure-quiz
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: TRUST_PROXY
+        value: "1"
+      - key: DATABASE_SSL
+        value: "true"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: RP_NAME
+        value: "ITBA P4 Quiz"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: itba-p4-free-db
+          property: connectionString
+
+databases:
+  - name: itba-p4-free-db
+    plan: free
+    databaseName: itba_p4
+    user: itba_p4_user
