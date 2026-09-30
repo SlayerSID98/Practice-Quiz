@@ -1,0 +1,14 @@
+{
+  "name": "itba-p4-mobile-secure-quiz",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"start": "node server.js"},
+  "engines": {"node": ">=20"},
+  "dependencies": {
+    "@simplewebauthn/server": "^13.1.2",
+    "better-sqlite3": "^12.2.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2"
+  }
+}

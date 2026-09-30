@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: itba-p4-mobile-secure-quiz
+    runtime: node
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DATA_DIR
+        value: /var/data
+      - key: TRUST_PROXY
+        value: "1"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false
+    disk:
+      name: quiz-data
+      mountPath: /var/data
+      sizeGB: 1
