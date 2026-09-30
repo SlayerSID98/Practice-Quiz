@@ -2,6 +2,7 @@ services:
   - type: web
     name: itba-p4-mobile-secure-quiz
     runtime: node
+    rootDir: P4_Mobile_Secure_Quiz
     plan: free
     buildCommand: npm install
     startCommand: npm start
